@@ -14,7 +14,7 @@ const printPokemon = (pokeData) => {
     pokeImg$$.src = pokeData.sprites.front_default;
     pokeGif$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
     pokeGif$$.width *= 0.5;
-    pokeName$$.innerText = pokeData.name;
+    pokeName$$.innerText = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
     
     document.body.appendChild(pokeDiv$$);
 
