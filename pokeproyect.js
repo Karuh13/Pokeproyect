@@ -1,13 +1,19 @@
 const print = (pokeData) => {
 
-    const pokeDiv$$ = document.createElement("div")
+    const pokeDiv$$ = document.createElement("div");
 	const pokeImg$$ = document.createElement("img");
+    const pokeGif$$ = document.createElement("img");
 
-    pokeDiv$$.appendChild(pokeImg$$)
-    pokeDiv$$.className = "pokeCard"
+    pokeDiv$$.appendChild(pokeImg$$);
+    pokeDiv$$.appendChild(pokeGif$$);
 
-    pokeImg$$.src = pokeData.sprites.front_default
-    document.body.appendChild(pokeDiv$$)
+    pokeDiv$$.className = "pokeCard";
+
+    pokeImg$$.src = pokeData.sprites.front_default;
+    pokeGif$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
+    
+    pokeGif$$.width *= 0.5;
+    document.body.appendChild(pokeDiv$$);
 
 }
 
