@@ -1,4 +1,4 @@
-const print = (pokeData) => {
+const printPokemon = (pokeData) => {
 
     const pokeDiv$$ = document.createElement("div");
 	const pokeImg$$ = document.createElement("img");
@@ -23,7 +23,7 @@ const print = (pokeData) => {
 for (let pokeNumber = 1; pokeNumber <= 151; pokeNumber++) {
     fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumber)
         .then((data) => data.json())
-        .then((pokemon) => print(pokemon))
+        .then((pokemon) => printPokemon(pokemon))
 }
 
         
