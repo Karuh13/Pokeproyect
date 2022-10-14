@@ -69,3 +69,8 @@ table {
     border-radius: 10px;
     padding: 4px 0px;
 }
+
+.pokeCard:hover {
+    background-color: rgb(255, 255, 255, 0.9);
+    transition: 220ms;
+}
