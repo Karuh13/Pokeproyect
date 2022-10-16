@@ -78,4 +78,115 @@ table {
 .pokeCard:hover {
   background-color: rgba(255, 255, 255, 0.9);
   transition: 220ms;
+}
+
+/* Type boxes style were adapted from a pen made by Julien Knebel (@jkneb - http://julienknebel.com/) */
+.pokeBox {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.pokeBox span {
+  text-align: center;
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  text-align: center;
+  border: 0.1rem solid transparent;
+  margin: 0.1rem 0.015rem;
+  padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+  border-radius: 0.4rem;
+  font-size: 0.5rem;
+  width: 2.2rem;
+  color: white;
+  text-shadow: 0rem 0rem 0.2rem black;
+}
+.pokeBox span.normal {
+  background-color: #a8a878;
+  border-top-color: #b8b891;
+  border-bottom-color: #969661;
+}
+.pokeBox span.fire {
+  background-color: #F08030;
+  border-top-color: #f39756;
+  border-bottom-color: #e66a11;
+}
+.pokeBox span.fighting {
+  background-color: #c03028;
+  border-top-color: #d6433b;
+  border-bottom-color: #9e2821;
+}
+.pokeBox span.water {
+  background-color: #6890f0;
+  border-top-color: #8dabf4;
+  border-bottom-color: #4375ec;
+}
+.pokeBox span.poison {
+  background-color: #a040a0;
+  border-top-color: #b950b9;
+  border-bottom-color: #833483;
+}
+.pokeBox span.electric {
+  background-color: #f8d030;
+  border-top-color: #f9d957;
+  border-bottom-color: #f7c709;
+}
+.pokeBox span.ground {
+  background-color: #e0c068;
+  border-top-color: #e7ce8a;
+  border-bottom-color: #d9b246;
+}
+.pokeBox span.grass {
+  background-color: #78c850;
+  border-top-color: #90d26f;
+  border-bottom-color: #63b639;
+}
+.pokeBox span.flying {
+  background-color: #a890f0;
+  border-top-color: #c4b4f5;
+  border-bottom-color: #8c6ceb;
+}
+.pokeBox span.ice {
+  background-color: #98d8d8;
+  border-top-color: #b6e3e3;
+  border-bottom-color: #7acdcd;
+}
+.pokeBox span.bug {
+  background-color: #a8b820;
+  border-top-color: #c7d927;
+  border-bottom-color: #88951a;
+}
+.pokeBox span.psychic {
+  background-color: #f85888;
+  border-top-color: #fa7fa4;
+  border-bottom-color: #f6316c;
+}
+.pokeBox span.rock {
+  background-color: #b8a038;
+  border-top-color: #cab34f;
+  border-bottom-color: #99852e;
+}
+.pokeBox span.dragon {
+  background-color: #7038f8;
+  border-top-color: #8c5ff9;
+  border-bottom-color: #5411f7;
+}
+.pokeBox span.ghost {
+  background-color: #705898;
+  border-top-color: #856eab;
+  border-bottom-color: #5d497e;
+}
+.pokeBox span.dark {
+  background-color: #705848;
+  border-top-color: #896c58;
+  border-bottom-color: #574438;
+}
+.pokeBox span.steel {
+  background-color: #b8b8d0;
+  border-top-color: #d1d1e0;
+  border-bottom-color: #9f9fc0;
+}
+.pokeBox span.fairy {
+  background-color: #ffb7fa;
+  border-top-color: #ffe0fd;
+  border-bottom-color: #ff8ef7;
 }/*# sourceMappingURL=pokeproyect.css.map */

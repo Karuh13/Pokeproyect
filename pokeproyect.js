@@ -9,10 +9,11 @@ const printPokemon = (pokeData) => {
     pokeDiv$$.appendChild(pokeName$$);
     
     const typeBox$$ = document.createElement("div");
+    typeBox$$.className = "pokeBox";
     for (typing of pokeData.types){
         const pokeType$$ = document.createElement("span");
-        pokeType$$.innerText = typing.type.name;
-        pokeType$$.className = "pokeType";
+        pokeType$$.innerText = typing.type.name.toUpperCase();
+        pokeType$$.className = typing.type.name;
         typeBox$$.appendChild(pokeType$$);
     }
     pokeDiv$$.appendChild(typeBox$$);

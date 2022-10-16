@@ -47,7 +47,7 @@ table {
 	border-spacing: 0;
 }
 
-.body {
+.body{
     position: relative;
     display: flex;
     flex-flow: wrap;
@@ -70,7 +70,48 @@ table {
     padding: 4px 0px;
 }
 
-.pokeCard:hover {
+.pokeCard:hover{
     background-color: rgb(255, 255, 255, 0.9);
     transition: 220ms;
+}
+
+/* Type boxes style were adapted from a pen made by Julien Knebel (@jkneb - http://julienknebel.com/) */
+.pokeBox {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    span {
+        text-align: center;
+        font-family: 'Trebuchet MS';
+        font-weight: bold;
+        text-align: center;
+        border: .1rem solid transparent;
+        margin: .1rem .015rem;
+        padding: .1rem .2rem .1rem .2rem;
+        border-radius: .4rem;
+        font-size:.5rem; 
+        width: 2.2rem;
+        color: white;
+        text-shadow: 0rem 0rem .2rem black; 
+        
+        &.normal     { background-color: #a8a878; border-top-color: lighten(#a8a878,8%); border-bottom-color: darken(#a8a878,8%); }
+        &.fire       { background-color: #F08030; border-top-color: lighten(#F08030,8%); border-bottom-color: darken(#F08030,8%); }
+        &.fighting   { background-color: #c03028; border-top-color: lighten(#c03028,8%); border-bottom-color: darken(#c03028,8%); }
+        &.water      { background-color: #6890f0; border-top-color: lighten(#6890f0,8%); border-bottom-color: darken(#6890f0,8%); }
+        &.poison     { background-color: #a040a0; border-top-color: lighten(#a040a0,8%); border-bottom-color: darken(#a040a0,8%); }
+        &.electric   { background-color: #f8d030; border-top-color: lighten(#f8d030,8%); border-bottom-color: darken(#f8d030,8%); }
+        &.ground     { background-color: #e0c068; border-top-color: lighten(#e0c068,8%); border-bottom-color: darken(#e0c068,8%); }
+        &.grass      { background-color: #78c850; border-top-color: lighten(#78c850,8%); border-bottom-color: darken(#78c850,8%); }
+        &.flying     { background-color: #a890f0; border-top-color: lighten(#a890f0,8%); border-bottom-color: darken(#a890f0,8%); }
+        &.ice        { background-color: #98d8d8; border-top-color: lighten(#98d8d8,8%); border-bottom-color: darken(#98d8d8,8%); }
+        &.bug        { background-color: #a8b820; border-top-color: lighten(#a8b820,8%); border-bottom-color: darken(#a8b820,8%); }
+        &.psychic    { background-color: #f85888; border-top-color: lighten(#f85888,8%); border-bottom-color: darken(#f85888,8%); }
+        &.rock       { background-color: #b8a038; border-top-color: lighten(#b8a038,8%); border-bottom-color: darken(#b8a038,8%); }
+        &.dragon     { background-color: #7038f8; border-top-color: lighten(#7038f8,8%); border-bottom-color: darken(#7038f8,8%); }
+        &.ghost      { background-color: #705898; border-top-color: lighten(#705898,8%); border-bottom-color: darken(#705898,8%); }
+        &.dark       { background-color: #705848; border-top-color: lighten(#705848,8%); border-bottom-color: darken(#705848,8%); }
+        &.steel      { background-color: #b8b8d0; border-top-color: lighten(#b8b8d0,8%); border-bottom-color: darken(#b8b8d0,8%); }
+        &.fairy      { background-color: #ffb7fa; border-top-color: lighten(#ffb7fa,8%); border-bottom-color: darken(#ffb7fa,8%); }
+      }
 }
