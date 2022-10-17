@@ -1,26 +1,14 @@
 let pokedex = [];
 
-const initializePokedex = () => {
-    for (let pokeNumber = 1; pokeNumber <= 151; pokeNumber++) {
-        fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumber)
-        .then((data) => data.json())
-        .then((pokemon) => pokedex.push(pokemon))
-    }
-}
+const initializePokedex = async (pokemonLimit = 151) => {
+    const iterable = [...new Array(pokemonLimit)].map((empty, index) => index + 1);
 
-/* const initializePokedex = () => {
-	return new Promise((resolve, reject) => {
-		const requests = [];
-		for (let pokeNumber = 1; pokeNumber <= 151; pokeNumber++) {
-			const req = fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumber)
-				.then((data) => data.json())
-				.then((pokemon) => pokemon)
-				.catch((error) => reject(error));
-			requests.push(req);
-		}
-		resolve(requests);
-	});
-}; */
+    for(const index of iterable) {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + index);
+        const result = await response.json();
+        pokedex.push(result);  
+    }  
+}
 
 const printPokemon = (pokedex) => {
 	const main$$ = document.querySelector("main");
@@ -69,14 +57,11 @@ const searchPokemon = (input) => {
 	);
 };
 
-/* Need to convert this into an async function */
-const director = () => {
-	initializePokedex();
 
-	setTimeout(() => {
-        pokedex.sort((a, b) => a.id - b.id)
-        printPokemon(pokedex)
-    }, 600);
+const director = async () => {
+	await initializePokedex();
+
+    printPokemon(pokedex)
 
 	const inputSearch$$ = document.querySelector("input");
 	inputSearch$$.addEventListener("keyup", () => searchPokemon(inputSearch$$));
