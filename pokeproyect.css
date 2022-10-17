@@ -60,16 +60,23 @@ table {
 }
 
 .header {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-flow: column;
 }
 .header img {
   width: 40%;
-  padding-bottom: 100px;
+  padding-bottom: 0.5vw;
   padding-top: 20px;
+}
+.header h1 {
+  font-size: 2vw;
+  padding-bottom: 2vw;
+  text-align: center;
+  text-shadow: 4px 4px 0 rgb(50, 100, 175), 4px -4px 0 rgb(50, 100, 175), -4px 4px 0 rgb(50, 100, 175), -4px -4px 0 rgb(50, 100, 175), 4px 0px 0 rgb(50, 100, 175), 0px 4px 0 rgb(50, 100, 175), -4px 0px 0 rgb(50, 100, 175), 0px -4px 0 rgb(50, 100, 175);
+  color: rgb(255, 204, 1);
+  font-family: "Pokemon Solid";
 }
 .header input {
   background-color: rgb(211, 211, 211);
