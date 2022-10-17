@@ -60,6 +60,7 @@ table {
 }
 
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -79,6 +80,31 @@ table {
   text-align: center;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+}
+.header div {
+  position: absolute;
+  border: 10px;
+  border-radius: 100%;
+}
+.header div.outerball {
+  background-color: rgb(23, 106, 159);
+  top: -4vw;
+  left: -11vw;
+  height: 23vw;
+  width: 23vw;
+  border: white 0.6vw solid;
+}
+.header div.innerball {
+  box-sizing: border-box;
+  top: 1.5vw;
+  left: 3.5vw;
+  height: 12.4vw;
+  width: 12.4vw;
+  background-color: white;
+  border-bottom: rgb(40, 171, 253) solid 4vw;
+  border-right: rgb(40, 171, 253) solid 3vw;
+  border-top: rgb(40, 171, 253) solid 2vw;
+  border-left: rgb(40, 171, 253) solid 2vw;
 }
 
 .main {
