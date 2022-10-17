@@ -73,7 +73,10 @@ const searchPokemon = (input) => {
 const director = () => {
 	initializePokedex();
 
-	setTimeout(() => printPokemon(pokedex), 1000);
+	setTimeout(() => {
+        pokedex.sort((a, b) => a.id - b.id)
+        printPokemon(pokedex)
+    }, 600);
 
 	const inputSearch$$ = document.querySelector("input");
 	inputSearch$$.addEventListener("keyup", () => searchPokemon(inputSearch$$));
