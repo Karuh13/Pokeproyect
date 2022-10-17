@@ -39,7 +39,8 @@ const printPokemon = (pokedex) => {
         pokeGif$$.width *= 0.5;
         pokeName$$.innerText = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
         
-        document.body.appendChild(pokeDiv$$);
+        const main$$ = document.querySelector("main")
+        main$$.appendChild(pokeDiv$$);
     }
 
 }

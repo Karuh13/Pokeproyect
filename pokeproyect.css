@@ -52,7 +52,7 @@ table {
   border-spacing: 0;
 }
 
-.body {
+.main {
   position: relative;
   display: flex;
   flex-flow: wrap;
@@ -62,6 +62,7 @@ table {
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .pokeCard {
