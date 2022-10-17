@@ -48,7 +48,7 @@ const printPokemon = (pokedex) => {
 }
 
 const searchPokemon = (input) => {
-    printPokemon(pokedex.filter((pokemon) => pokemon.name.includes(input.value)));
+    printPokemon(pokedex.filter((pokemon) => pokemon.name.includes(input.value) || String(pokemon.id).includes(input.value)));
 }
 
 /* Need to convert this into an async function */
