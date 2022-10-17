@@ -113,6 +113,7 @@ table {
 .pokeCard h3 {
   font-size: 1.8vmax;
   padding: 5%;
+  text-transform: capitalize;
 }
 
 .pokeCard:hover {

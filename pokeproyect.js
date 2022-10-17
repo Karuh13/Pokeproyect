@@ -40,7 +40,7 @@ const printPokemon = (pokedex) => {
         pokeDiv$$.className = "pokeCard";
         
         pokeImg$$.src = pokeData.sprites.front_default;
-        pokeName$$.innerText = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
+        pokeName$$.innerText = pokeData.name
         
         main$$.appendChild(pokeDiv$$);
     }
