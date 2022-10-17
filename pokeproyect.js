@@ -1,5 +1,16 @@
 const pokedex =[];
 
+/* const header = () => {
+    const header$$ = document.querySelector("header")
+    const pokeLogo$$ = document.createElement("img");
+    pokeLogo$$.src = "./assets/Pokemon_logo.png"
+
+    header$$.appendChild(pokeLogo$$)
+    
+}
+
+header() */
+
 const initializePokedex = () => {
     for (let pokeNumber = 1; pokeNumber <= 151; pokeNumber++) {
         fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumber)
@@ -9,6 +20,9 @@ const initializePokedex = () => {
 }
 
 const printPokemon = (pokedex) => {
+    const main$$ = document.querySelector("main")
+    main$$.innerHTML = ""
+
     for (const pokeData of pokedex) {
         const pokeDiv$$ = document.createElement("div");
         
@@ -39,16 +53,16 @@ const printPokemon = (pokedex) => {
         pokeGif$$.width *= 0.5;
         pokeName$$.innerText = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
         
-        const main$$ = document.querySelector("main")
         main$$.appendChild(pokeDiv$$);
     }
 
 }
+
 /* Need to convert this into an async function */
 function director () {
     initializePokedex();
 
-    setTimeout(() => printPokemon(pokedex), 1000);
+    setTimeout(() => printPokemon(pokedex), 2000);
 }
 
 director()
