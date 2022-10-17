@@ -69,6 +69,7 @@ table {
 .header img {
   width: 40%;
   padding-bottom: 100px;
+  padding-top: 20px;
 }
 .header input {
   background-color: rgb(211, 211, 211);
@@ -109,7 +110,7 @@ table {
 
 .main {
   position: relative;
-  margin: 2.5%;
+  margin: 4% 10%;
   border: 2rem solid rgb(211, 211, 211);
   border-radius: 10px 10px 10px 70px;
   display: flex;
