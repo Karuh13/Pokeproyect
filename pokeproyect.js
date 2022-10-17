@@ -3,12 +3,16 @@ let pokedex = [];
 const initializePokedex = async (pokemonLimit = 151) => {
     const iterable = [...new Array(pokemonLimit)].map((empty, index) => index + 1);
 
-    for(const index of iterable) {
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + index);
-        const result = await response.json();
-        pokedex.push(result);  
-    }  
-}
+    try {
+        for(const index of iterable) {
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + index);
+            const result = await response.json();
+            pokedex.push(result);  
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}  
 
 const printPokemon = (pokedex) => {
 	const main$$ = document.querySelector("main");

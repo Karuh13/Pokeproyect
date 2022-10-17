@@ -67,7 +67,7 @@ table {
   flex-flow: column;
 }
 .header img {
-  width: 70%;
+  width: 40%;
   padding-bottom: 100px;
 }
 .header input {
