@@ -54,6 +54,9 @@ table {
 
 .body {
   background-color: rgb(207, 0, 0);
+  display: flex;
+  flex-flow: column;
+  align-self: center;
 }
 
 .header {
@@ -61,15 +64,14 @@ table {
   align-items: center;
   justify-content: space-around;
   flex-flow: column;
-  height: 300px;
 }
 .header img {
-  height: 70%;
+  width: 70%;
 }
 
 .main {
   position: relative;
-  margin: 1rem;
+  margin: 2.5%;
   border: 2rem solid rgb(211, 211, 211);
   border-radius: 10px 10px 10px 70px;
   display: flex;
@@ -89,6 +91,14 @@ table {
   background-color: rgba(230, 230, 230, 0.7);
   border-radius: 10px;
   padding: 4px 0px;
+  width: 12%;
+  min-width: 200px;
+}
+.pokeCard img {
+  width: 100%;
+}
+.pokeCard h3 {
+  font-size: 1.8vmax;
 }
 
 .pokeCard:hover {
@@ -111,8 +121,9 @@ table {
   margin: 0.1rem 0.015rem;
   padding: 0.1rem 0.2rem 0.1rem 0.2rem;
   border-radius: 0.4rem;
-  font-size: 0.5rem;
-  width: 2.2rem;
+  font-size: calc(10px + 0.3vmax);
+  width: calc(34px + 2vw);
+  min-width: 35px;
   color: white;
   text-shadow: 0rem 0rem 0.2rem black;
 }

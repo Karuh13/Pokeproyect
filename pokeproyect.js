@@ -42,15 +42,15 @@ const printPokemon = (pokedex) => {
         }
         pokeDiv$$.appendChild(typeBox$$);
         
-        const pokeGif$$ = document.createElement("img");
+        /* const pokeGif$$ = document.createElement("img");
         pokeDiv$$.appendChild(pokeGif$$);
+        pokeGif$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
+        pokeGif$$.width *= 0.5; */
     
         
         pokeDiv$$.className = "pokeCard";
         
         pokeImg$$.src = pokeData.sprites.front_default;
-        pokeGif$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
-        pokeGif$$.width *= 0.5;
         pokeName$$.innerText = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
         
         main$$.appendChild(pokeDiv$$);
@@ -62,7 +62,7 @@ const printPokemon = (pokedex) => {
 function director () {
     initializePokedex();
 
-    setTimeout(() => printPokemon(pokedex), 2000);
+    setTimeout(() => printPokemon(pokedex), 1000);
 }
 
 director()
