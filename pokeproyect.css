@@ -112,6 +112,7 @@ table {
 }
 .pokeCard h3 {
   font-size: 1.8vmax;
+  padding: 5%;
 }
 
 .pokeCard:hover {

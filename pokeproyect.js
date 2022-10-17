@@ -15,11 +15,11 @@ const printPokemon = (pokedex) => {
     for (const pokeData of pokedex) {
         const pokeDiv$$ = document.createElement("div");
         
-        const pokeImg$$ = document.createElement("img");
-        pokeDiv$$.appendChild(pokeImg$$);
-        
         const pokeName$$ = document.createElement("h3");
         pokeDiv$$.appendChild(pokeName$$);
+
+        const pokeImg$$ = document.createElement("img");
+        pokeDiv$$.appendChild(pokeImg$$);
         
         const typeBox$$ = document.createElement("div");
         typeBox$$.className = "pokeBox";
