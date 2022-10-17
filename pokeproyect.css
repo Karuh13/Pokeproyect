@@ -53,7 +53,7 @@ table {
 }
 
 .body {
-  background-color: rgb(207, 0, 0);
+  background-color: rgb(218, 31, 31);
   display: flex;
   flex-flow: column;
   align-self: center;
@@ -67,6 +67,17 @@ table {
 }
 .header img {
   width: 70%;
+  padding-bottom: 100px;
+}
+.header input {
+  background-color: rgb(211, 211, 211);
+  border: none;
+  width: 40%;
+  height: 2vmax;
+  font-size: 1.5vmax;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .main {
@@ -76,7 +87,7 @@ table {
   border-radius: 10px 10px 10px 70px;
   display: flex;
   flex-flow: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 1rem;
   padding: 1rem;
   background-color: rgb(32, 32, 32);
