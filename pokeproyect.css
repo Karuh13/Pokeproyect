@@ -78,6 +78,7 @@ table {
   padding: 5px;
   text-align: center;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
 
 .main {
@@ -91,6 +92,7 @@ table {
   gap: 1rem;
   padding: 1rem;
   background-color: rgb(32, 32, 32);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .pokeCard {
@@ -98,12 +100,12 @@ table {
   justify-content: space-between;
   align-items: center;
   flex-flow: column;
-  border: 1px solid black;
   background-color: rgba(230, 230, 230, 0.7);
   border-radius: 10px;
   padding: 4px 0px;
   width: 12%;
   min-width: 200px;
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
 }
 .pokeCard img {
   width: 100%;
@@ -114,6 +116,7 @@ table {
 
 .pokeCard:hover {
   background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.65);
   transition: 220ms;
 }
 
@@ -140,91 +143,91 @@ table {
 }
 .pokeBox span.normal {
   background-color: #a8a878;
-  border-top-color: #b8b891;
-  border-bottom-color: #969661;
+  border-top-color: #c0c09d;
+  border-bottom-color: #8a8a59;
 }
 .pokeBox span.fire {
   background-color: #F08030;
-  border-top-color: #f39756;
-  border-bottom-color: #e66a11;
+  border-top-color: #f4a369;
+  border-bottom-color: #d3610f;
 }
 .pokeBox span.fighting {
   background-color: #c03028;
-  border-top-color: #d6433b;
-  border-bottom-color: #9e2821;
+  border-top-color: #da534c;
+  border-bottom-color: #8d231d;
 }
 .pokeBox span.water {
   background-color: #6890f0;
-  border-top-color: #8dabf4;
-  border-bottom-color: #4375ec;
+  border-top-color: #a0b9f6;
+  border-bottom-color: #3067ea;
 }
 .pokeBox span.poison {
   background-color: #a040a0;
-  border-top-color: #b950b9;
-  border-bottom-color: #833483;
+  border-top-color: #bf5ebf;
+  border-bottom-color: #742f74;
 }
 .pokeBox span.electric {
   background-color: #f8d030;
-  border-top-color: #f9d957;
-  border-bottom-color: #f7c709;
+  border-top-color: #fadd6b;
+  border-bottom-color: #e3b708;
 }
 .pokeBox span.ground {
   background-color: #e0c068;
-  border-top-color: #e7ce8a;
-  border-bottom-color: #d9b246;
+  border-top-color: #ead59b;
+  border-bottom-color: #d6ab35;
 }
 .pokeBox span.grass {
   background-color: #78c850;
-  border-top-color: #90d26f;
-  border-bottom-color: #63b639;
+  border-top-color: #9cd77f;
+  border-bottom-color: #5aa634;
 }
 .pokeBox span.flying {
   background-color: #a890f0;
-  border-top-color: #c4b4f5;
-  border-bottom-color: #8c6ceb;
+  border-top-color: #d2c6f7;
+  border-bottom-color: #7e5ae9;
 }
 .pokeBox span.ice {
   background-color: #98d8d8;
-  border-top-color: #b6e3e3;
-  border-bottom-color: #7acdcd;
+  border-top-color: #c4e9e9;
+  border-bottom-color: #6cc7c7;
 }
 .pokeBox span.bug {
   background-color: #a8b820;
-  border-top-color: #c7d927;
-  border-bottom-color: #88951a;
+  border-top-color: #cbdd39;
+  border-bottom-color: #788417;
 }
 .pokeBox span.psychic {
   background-color: #f85888;
-  border-top-color: #fa7fa4;
-  border-bottom-color: #f6316c;
+  border-top-color: #fa93b2;
+  border-bottom-color: #f61d5e;
 }
 .pokeBox span.rock {
   background-color: #b8a038;
-  border-top-color: #cab34f;
-  border-bottom-color: #99852e;
+  border-top-color: #ceb95f;
+  border-bottom-color: #89772a;
 }
 .pokeBox span.dragon {
   background-color: #7038f8;
-  border-top-color: #8c5ff9;
-  border-bottom-color: #5411f7;
+  border-top-color: #9a73fa;
+  border-bottom-color: #4a08eb;
 }
 .pokeBox span.ghost {
   background-color: #705898;
-  border-top-color: #856eab;
-  border-bottom-color: #5d497e;
+  border-top-color: #907bb2;
+  border-bottom-color: #534271;
 }
 .pokeBox span.dark {
   background-color: #705848;
-  border-top-color: #896c58;
-  border-bottom-color: #574438;
+  border-top-color: #957560;
+  border-bottom-color: #4b3b30;
 }
 .pokeBox span.steel {
   background-color: #b8b8d0;
-  border-top-color: #d1d1e0;
-  border-bottom-color: #9f9fc0;
+  border-top-color: #dddde8;
+  border-bottom-color: #9393b8;
 }
 .pokeBox span.fairy {
   background-color: #ffb7fa;
-  border-top-color: #ffe0fd;
-  border-bottom-color: #ff8ef7;
+  border-top-color: #fff4fe;
+  border-bottom-color: #ff7af6;
 }/*# sourceMappingURL=pokeproyect.css.map */
