@@ -1,16 +1,5 @@
 const pokedex =[];
 
-/* const header = () => {
-    const header$$ = document.querySelector("header")
-    const pokeLogo$$ = document.createElement("img");
-    pokeLogo$$.src = "./assets/Pokemon_logo.png"
-
-    header$$.appendChild(pokeLogo$$)
-    
-}
-
-header() */
-
 const initializePokedex = () => {
     for (let pokeNumber = 1; pokeNumber <= 151; pokeNumber++) {
         fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumber)
@@ -58,11 +47,18 @@ const printPokemon = (pokedex) => {
 
 }
 
+const searchPokemon = (input) => {
+    printPokemon(pokedex.filter((pokemon) => pokemon.name.includes(input.value)));
+}
+
 /* Need to convert this into an async function */
-function director () {
+const director = () => {
     initializePokedex();
 
     setTimeout(() => printPokemon(pokedex), 1000);
+
+    const inputSearch$$ = document.querySelector("input");
+    inputSearch$$.addEventListener("keyup", () => searchPokemon(inputSearch$$))
 }
 
 director()
