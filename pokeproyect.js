@@ -189,10 +189,21 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 
 
 	// Stats
-	for (statData in pokeData.stats){
+	for (stat in pokeData.stats){
 		const stat$$ = document.createElement("div")
-		// Need to refactor this
-		stat$$.innerHTML = `${statData}----${pokeData.stats[statData]}`
+
+		const statName$$ = document.createElement("span")
+		statName$$.innerHTML = stat;
+		stat$$.appendChild(statName$$)
+
+		const statBar$$ = document.createElement("span")
+		statBar$$.className = "statBar"
+		stat$$.appendChild(statBar$$)
+
+		const statValue$$ = document.createElement("span")
+		statValue$$.innerHTML = pokeData.stats[stat]
+		stat$$.appendChild(statValue$$)
+
 		statBox$$.appendChild(stat$$)
 	}
 
