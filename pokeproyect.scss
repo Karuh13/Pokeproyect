@@ -195,11 +195,13 @@ table {
 
         & p{
             color: white;
-            font-size: 5vw;
+            font-size: calc(6vw - 10px);
+            max-width: 100%;
         }
 
         & img{
             animation: rotation 3s infinite linear;
+            max-width: 100%;
         }
     }
 }
