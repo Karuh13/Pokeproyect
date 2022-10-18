@@ -64,6 +64,8 @@ const initializePokedex = async (pokemonLimit = 151) => {
 			// Habitat added to each pokemon as homonym attribute
 			pokemon.habitat = specieInfo.habitat.name
 			
+			pokemon.cry = "https://play.pokemonshowdown.com/audio/cries/src/" + pokemon.name + ".wav";
+
 			pokedex.push(pokemon);
         }
     } catch (error) {
@@ -131,7 +133,12 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	
 	// Card with details
 	pokeDiv$$.className = "pokeDetails"
-
+	
+	// Cry
+	const cryDiv$$ = document.createElement("div")
+	cryDiv$$.innerHTML =`<audio autoplay="autoplay"><source src=${pokeData.cry} type="audio/x-wav"></audio>`;
+	pokeDiv$$.appendChild(cryDiv$$)
+	
 	// Name of the pokemon
 	const pokeName$$ = document.createElement("h3");
 	pokeName$$.innerHTML = pokeData.name;
@@ -183,6 +190,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	animationsDiv$$.className = "animations"
 	statAndAnimationDiv$$.appendChild(animationsDiv$$)
 	
+
 	// Animated front view of the pokemon (depends on shiny attribute)
 	const pokeGifFront$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifFront$$);
@@ -209,6 +217,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 		
 	}
 	
+
 	// Types
 	const typeBox$$ = document.createElement("div");
 	typeBox$$.className = "pokeBox";
