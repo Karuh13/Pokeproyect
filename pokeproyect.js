@@ -5,27 +5,67 @@ const initializePokedex = async (pokemonLimit = 151) => {
 
     try {
         for(const index of iterable) {
+			const pokemon = {}
 			// Information of each pokemon (object) added to de pokedex array
             const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + index);
             const result = await response.json();
-            pokedex.push(result);
 
+			pokemon.name = result.name;
+
+			pokemon.shiny_sprite = result.sprites.front_shiny;
+			pokemon.shiny_front_animation = result.sprites.versions["generation-v"]["black-white"].animated.front_shiny;
+			pokemon.shiny_back_animation = result.sprites.versions["generation-v"]["black-white"].animated.back_shiny;
+
+			pokemon.default_sprite = result.sprites.front_default;
+			pokemon.default_front_animation = result.sprites.versions["generation-v"]["black-white"].animated.front_default;
+			pokemon.default_back_animation = result.sprites.versions["generation-v"]["black-white"].animated.back_default;
+
+			pokemon.types = []
+			for (const typing of result.types) {
+				pokemon.types.push(typing.type.name)
+			}
+
+			pokemon.stats = {}
+			for (statData of result.stats){
+				pokemon.stats[statData.stat.name] = statData.base_stat;
+
+			}
+
+			
 			// Shiny attribute added to each pokemon object
-			pokedex[index - 1].shiny = Math.floor((Math.random() * 50) + 1) === 1 ? true : false;
-
-			// First english description added to each pokemon attribute
+			pokemon.shiny = Math.floor((Math.random() * 20) + 1) === 1 ? true : false;
+			
+			// Fetch for falvor text, genus and habitat
 			const specieFetch = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + index);
-			let specieInfo = await specieFetch.json();
+			const specieInfo = await specieFetch.json();
+			
+			// First english flavor text added to each pokemon as homonym attribute
+			let flavor_text;
 			for (quote of specieInfo.flavor_text_entries) {
 				if (quote.language.name === "en"){
-					specieInfo = quote.flavor_text;
-					break
+					flavor_text = quote.flavor_text;
+					break;
 				}
 			}
-			pokedex[index - 1].description = specieInfo.split("\f").join(" ");
+			pokemon.flavor_text = flavor_text.split("\f").join(" ");
+			
+			// English genus added to each pokemon as homonym attribute
+			let genus;
+			for (languageVariant of specieInfo.genera){
+				if (languageVariant.language.name === "en"){
+					genus = languageVariant.genus;
+					break;
+				}
+			}
+			pokemon.genus = genus;
+			
+			// Habitat added to each pokemon as homonym attribute
+			pokemon.habitat = specieInfo.habitat.name
+			
+			pokedex.push(pokemon);
         }
     } catch (error) {
-        console.log(error);
+		console.log(error);
     }
 }  
 
@@ -47,11 +87,11 @@ const printPokemon = (pokedex) => {
 		const pokeImg$$ = document.createElement("img");
 		pokeDiv$$.appendChild(pokeImg$$);
 		if (pokeData.shiny) {
-			pokeImg$$.src = pokeData.sprites.front_shiny;
+			pokeImg$$.src = pokeData.shiny_sprite;
 			pokeImg$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
 			
 		} else {
-		pokeImg$$.src = pokeData.sprites.front_default;
+		pokeImg$$.src = pokeData.default_sprite;
 		pokeImg$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
 
 		}
@@ -59,10 +99,10 @@ const printPokemon = (pokedex) => {
 		// Types
 		const typeBox$$ = document.createElement("div");
 		typeBox$$.className = "pokeBox";
-		for (typing of pokeData.types) {
+		for (type of pokeData.types) {
 			const pokeType$$ = document.createElement("span");
-			pokeType$$.innerHTML = typing.type.name.toUpperCase();
-			pokeType$$.className = typing.type.name;
+			pokeType$$.innerHTML = type.toUpperCase();
+			pokeType$$.className = type;
 			typeBox$$.appendChild(pokeType$$);
 		}
 		pokeDiv$$.appendChild(typeBox$$);
@@ -115,11 +155,11 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	const pokeGifFront$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifFront$$);
 	if (pokeData.shiny) {
-		pokeGifFront$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_shiny;
+		pokeGifFront$$.src = pokeData.shiny_front_animation;
 		pokeGifFront$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
 
 	} else {
-		pokeGifFront$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
+		pokeGifFront$$.src = pokeData.default_front_animation;
 		pokeGifFront$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
 		
 	}
@@ -128,11 +168,11 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	const pokeGifBack$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifBack$$);
 	if (pokeData.shiny) {
-		pokeGifBack$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.back_shiny;
+		pokeGifBack$$.src = pokeData.shiny_back_animation;
 		pokeGifBack$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
 
 	} else {
-		pokeGifBack$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.back_default;
+		pokeGifBack$$.src = pokeData.default_back_animation;
 		pokeGifBack$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
 		
 	}
@@ -149,26 +189,26 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 
 
 	// Stats
-	for (statData of pokeData.stats){
+	for (statData in pokeData.stats){
 		const stat$$ = document.createElement("div")
 		// Need to refactor this
-		stat$$.innerHTML = `<span>${statData.stat.name}</span><span>----</span><span>${statData.base_stat}</span>`
+		stat$$.innerHTML = `${statData}----${pokeData.stats[statData]}`
 		statBox$$.appendChild(stat$$)
 	}
 
 	// Description
 	const descriptionP$$ = document.createElement("p")
-	descriptionP$$.innerHTML = pokeData.description
+	descriptionP$$.innerHTML = pokeData.flavor_text
 	descriptionP$$.className = "description"
 	statAndDescriptionDiv$$.appendChild(descriptionP$$)
 
 	// Types
 	const typeBox$$ = document.createElement("div");
 	typeBox$$.className = "pokeBox";
-	for (typing of pokeData.types) {
+	for (type of pokeData.types) {
 		const pokeType$$ = document.createElement("span");
-		pokeType$$.innerHTML = typing.type.name.toUpperCase();
-		pokeType$$.className = typing.type.name;
+		pokeType$$.innerHTML = type.toUpperCase();
+		pokeType$$.className = type;
 		typeBox$$.appendChild(pokeType$$);
 	}
 	pokeDiv$$.appendChild(typeBox$$);
@@ -178,7 +218,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 
 
 const init = async () => {
-	
+
 	await initializePokedex();
 
     printPokemon(pokedex)
