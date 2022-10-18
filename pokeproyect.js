@@ -83,6 +83,7 @@ const searchPokemon = (input) => {
 
 const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	pokeDiv$$.innerHTML = "";
+
 	
 	// Card with details
 	/* const pokeDiv$$ = document.createElement("div") */
@@ -171,10 +172,13 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 		typeBox$$.appendChild(pokeType$$);
 	}
 	pokeDiv$$.appendChild(typeBox$$);
+
+	pokeDiv$$.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 
 
-const director = async () => {
+const init = async () => {
+	
 	await initializePokedex();
 
     printPokemon(pokedex)
@@ -190,4 +194,4 @@ const director = async () => {
 
 };
 
-director();
+init();
