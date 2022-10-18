@@ -347,10 +347,12 @@ table {
   position: relative;
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 3%;
   align-items: center;
-  width: 100%;
-  height: 50vh;
+  width: 75%;
+  margin: 0 12.5%;
+  height: 43vh;
   background-color: rgba(230, 230, 230, 0.7);
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
@@ -359,9 +361,11 @@ table {
 }
 .pokeDetails h3 {
   text-transform: capitalize;
-  align-self: flex-start;
   font-size: 5vw;
   padding: 1% 0%;
+}
+.pokeDetails > p {
+  padding-bottom: 5px;
 }
 .pokeDetails button {
   position: absolute;
@@ -382,45 +386,46 @@ table {
   cursor: pointer;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
-.pokeDetails > div {
-  width: 100%;
-}
-.pokeDetails > div.information {
+.pokeDetails .stat-animation {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80%;
+  width: 100%;
+  gap: 2%;
 }
-.pokeDetails > div.information .animations {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  height: 100%;
-  justify-content: space-around;
-  width: 40%;
-}
-.pokeDetails > div.information .animations img {
-  transform: scale(2);
-}
-.pokeDetails > div.information .stat-description {
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-}
-.pokeDetails > div.information .stat-description .stats-box {
+.pokeDetails .stat-animation .stats-box {
   display: flex;
   flex-flow: column;
 }
-.pokeDetails > div.information .stat-description .stats-box > div {
+.pokeDetails .stat-animation .stats-box > div {
   padding: 3px;
   display: flex;
 }
-.pokeDetails > div.information .stat-description .stats-box > div span:first-of-type {
+.pokeDetails .stat-animation .stats-box > div span:first-of-type {
   text-transform: capitalize;
-  width: 200px;
+  min-width: 200px;
 }
-.pokeDetails > div.information .stat-description .description {
-  width: 100%;
-  padding: 5%;
+.pokeDetails .stat-animation .animations {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 30%;
+  justify-content: space-around;
+}
+.pokeDetails .stat-animation .animations img {
+  transform: scale(1.2);
+}
+.pokeDetails .pokeBox {
+  justify-content: center;
+  gap: 10%;
+}
+.pokeDetails .pokeBox span {
+  font-size: calc(8px + 1vw);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.pokeDetails .description {
+  text-align: center;
+  width: 50%;
 }/*# sourceMappingURL=pokeproyect.css.map */

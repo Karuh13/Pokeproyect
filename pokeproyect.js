@@ -130,7 +130,6 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 
 	
 	// Card with details
-	/* const pokeDiv$$ = document.createElement("div") */
 	pokeDiv$$.className = "pokeDetails"
 
 	// Name of the pokemon
@@ -138,23 +137,52 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	pokeName$$.innerHTML = pokeData.name;
 	pokeDiv$$.appendChild(pokeName$$);
 
+	// Genus of the pokemon
+	const genusP$$ = document.createElement("p")
+	genusP$$.innerHTML = pokeData.genus
+	pokeDiv$$.appendChild(genusP$$)
+
 	// Closing button
 	const closingButton$$ = document.createElement("button")
 	pokeDiv$$.appendChild(closingButton$$)
 	closingButton$$.innerHTML = "X"
 	closingButton$$.className = "closing-button"
 	closingButton$$.addEventListener("click", () => searchPokemon(document.querySelector("input")))
+	
+	// Div for stats + animation
+	const statAndAnimationDiv$$ = document.createElement("div")
+	statAndAnimationDiv$$.className = "stat-animation"
+	pokeDiv$$.appendChild(statAndAnimationDiv$$)
 
-	// Div for animations and stats + description
-	const informationDiv$$ = document.createElement("div")
-	informationDiv$$.className= "information"
-	pokeDiv$$.appendChild(informationDiv$$)
+	// Div for stats
+	const statBox$$ = document.createElement("div")
+	statBox$$.className = "stats-box"
+	statAndAnimationDiv$$.appendChild(statBox$$)
 
+	// Stats
+	for (stat in pokeData.stats){
+		const stat$$ = document.createElement("div")
+
+		const statName$$ = document.createElement("span")
+		statName$$.innerHTML = stat;
+		stat$$.appendChild(statName$$)
+
+		const statBar$$ = document.createElement("span")
+		statBar$$.className = "statBar"
+		stat$$.appendChild(statBar$$)
+
+		const statValue$$ = document.createElement("span")
+		statValue$$.innerHTML = pokeData.stats[stat]
+		stat$$.appendChild(statValue$$)
+
+		statBox$$.appendChild(stat$$)
+	}
+	
 	// Div for both animations
 	const animationsDiv$$ = document.createElement("div");
 	animationsDiv$$.className = "animations"
-	informationDiv$$.appendChild(animationsDiv$$)
-
+	statAndAnimationDiv$$.appendChild(animationsDiv$$)
+	
 	// Animated front view of the pokemon (depends on shiny attribute)
 	const pokeGifFront$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifFront$$);
@@ -180,43 +208,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 		pokeGifBack$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
 		
 	}
-
-	// Div for stats + description
-	const statAndDescriptionDiv$$ = document.createElement("div")
-	statAndDescriptionDiv$$.className = "stat-description"
-	informationDiv$$.appendChild(statAndDescriptionDiv$$)
-
-	// Div for stats
-	const statBox$$ = document.createElement("div")
-	statBox$$.className = "stats-box"
-	statAndDescriptionDiv$$.appendChild(statBox$$)
-
-
-	// Stats
-	for (stat in pokeData.stats){
-		const stat$$ = document.createElement("div")
-
-		const statName$$ = document.createElement("span")
-		statName$$.innerHTML = stat;
-		stat$$.appendChild(statName$$)
-
-		const statBar$$ = document.createElement("span")
-		statBar$$.className = "statBar"
-		stat$$.appendChild(statBar$$)
-
-		const statValue$$ = document.createElement("span")
-		statValue$$.innerHTML = pokeData.stats[stat]
-		stat$$.appendChild(statValue$$)
-
-		statBox$$.appendChild(stat$$)
-	}
-
-	// Description
-	const descriptionP$$ = document.createElement("p")
-	descriptionP$$.innerHTML = pokeData.flavor_text
-	descriptionP$$.className = "description"
-	statAndDescriptionDiv$$.appendChild(descriptionP$$)
-
+	
 	// Types
 	const typeBox$$ = document.createElement("div");
 	typeBox$$.className = "pokeBox";
@@ -227,6 +219,12 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 		typeBox$$.appendChild(pokeType$$);
 	}
 	pokeDiv$$.appendChild(typeBox$$);
+
+	// Description
+	const descriptionP$$ = document.createElement("p")
+	descriptionP$$.innerHTML = pokeData.flavor_text
+	descriptionP$$.className = "description"
+	pokeDiv$$.appendChild(descriptionP$$)
 
 	pokeDiv$$.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
