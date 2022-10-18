@@ -322,7 +322,7 @@ table {
         }
     }
 
-    div{
+    & >div{
         width: 100%;
 
        &.information{
@@ -340,7 +340,7 @@ table {
             width: 40%;
 
             img{
-                scale: 2;
+                transform: scale(2);
             }
         }
 
@@ -353,6 +353,17 @@ table {
             & .stats-box {
                 display: flex;
                 flex-flow: column;
+
+                & >div{
+                    padding: 3px;
+                    display: flex;
+
+                    & span:first-of-type{
+                        text-transform: capitalize;
+                        width: 200px;
+                    }
+
+                }
             }
 
             & .description{

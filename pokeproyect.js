@@ -20,6 +20,8 @@ const initializePokedex = async (pokemonLimit = 151) => {
 			pokemon.default_front_animation = result.sprites.versions["generation-v"]["black-white"].animated.front_default;
 			pokemon.default_back_animation = result.sprites.versions["generation-v"]["black-white"].animated.back_default;
 
+			pokemon.id = result.id;
+
 			pokemon.types = []
 			for (const typing of result.types) {
 				pokemon.types.push(typing.type.name)
@@ -116,7 +118,9 @@ const printPokemon = (pokedex) => {
 const searchPokemon = (input) => {
 	printPokemon(
 		pokedex.filter(
-			(pokemon) => pokemon.name.includes(input.value) || String(pokemon.id).includes(input.value)
+			(pokemon) => pokemon.name.includes(input.value.toLowerCase()) 
+			|| String(pokemon.id).includes(input.value)
+			|| pokemon.types.includes(input.value.toLowerCase())
 		)
 	);
 };

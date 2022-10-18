@@ -382,16 +382,16 @@ table {
   cursor: pointer;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
-.pokeDetails div {
+.pokeDetails > div {
   width: 100%;
 }
-.pokeDetails div.information {
+.pokeDetails > div.information {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 80%;
 }
-.pokeDetails div.information .animations {
+.pokeDetails > div.information .animations {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -399,20 +399,28 @@ table {
   justify-content: space-around;
   width: 40%;
 }
-.pokeDetails div.information .animations img {
-  scale: 2;
+.pokeDetails > div.information .animations img {
+  transform: scale(2);
 }
-.pokeDetails div.information .stat-description {
+.pokeDetails > div.information .stat-description {
   height: 100%;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
 }
-.pokeDetails div.information .stat-description .stats-box {
+.pokeDetails > div.information .stat-description .stats-box {
   display: flex;
   flex-flow: column;
 }
-.pokeDetails div.information .stat-description .description {
+.pokeDetails > div.information .stat-description .stats-box > div {
+  padding: 3px;
+  display: flex;
+}
+.pokeDetails > div.information .stat-description .stats-box > div span:first-of-type {
+  text-transform: capitalize;
+  width: 200px;
+}
+.pokeDetails > div.information .stat-description .description {
   width: 100%;
   padding: 5%;
 }/*# sourceMappingURL=pokeproyect.css.map */
