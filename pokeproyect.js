@@ -154,6 +154,13 @@ const director = async () => {
 
 	const inputSearch$$ = document.querySelector("input");
 	inputSearch$$.addEventListener("keyup", () => searchPokemon(inputSearch$$));
+
+	const clearSearch$$ = document.querySelector("#clearSearch")
+	clearSearch$$.addEventListener("click", () => {
+		inputSearch$$.value = "";
+		searchPokemon(inputSearch$$)
+	})
+
 };
 
 director();

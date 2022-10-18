@@ -84,23 +84,48 @@ table {
   color: rgb(255, 204, 1);
   font-family: "Pokemon Solid";
 }
-.header input {
+.header > div:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(211, 211, 211);
   border: none;
+  padding: 0 5px;
   width: 40%;
+  height: 2vmax;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+}
+.header > div:last-of-type button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.3vmax;
+  text-align: center;
+  padding: 0;
+  width: 5%;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+.header > div:last-of-type button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+}
+.header > div:last-of-type input {
+  background-color: rgb(211, 211, 211);
+  border: none;
+  width: 100%;
   height: 2vmax;
   font-size: 1.5vmax;
   padding: 5px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
-.header div {
+.header div:first-of-type {
   position: absolute;
   border: 10px;
   border-radius: 100%;
 }
-.header div.outerball {
+.header div:first-of-type.outerball {
   background-color: rgb(23, 106, 159);
   top: -4vw;
   left: -11vw;
@@ -108,7 +133,7 @@ table {
   width: 23vw;
   border: white 0.6vw solid;
 }
-.header div.innerball {
+.header div:first-of-type.innerball {
   box-sizing: border-box;
   top: 1.5vw;
   left: 3.5vw;
@@ -180,7 +205,7 @@ table {
   padding: 0.1rem 0.2rem 0.1rem 0.2rem;
   border-radius: 0.4rem;
   font-size: calc(10px + 0.3vmax);
-  width: calc(34px + 2vw);
+  width: calc(58px + 1.5vw);
   min-width: 35px;
   color: white;
   text-shadow: 0rem 0rem 0.2rem black;
@@ -310,6 +335,10 @@ table {
   border-radius: 50px;
   border: 2px rgba(255, 255, 255, 0.2) solid;
   background-color: whitesmoke;
+}
+.pokeDetails button:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
 }
 .pokeDetails div {
   width: 100%;
