@@ -1,3 +1,7 @@
+@font-face {
+  font-family: pokemon;
+  src: url(./assets/Pokemon_solid.ttf);
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -82,7 +86,7 @@ table {
   text-align: center;
   text-shadow: 4px 4px 0 rgb(50, 100, 175), 4px -4px 0 rgb(50, 100, 175), -4px 4px 0 rgb(50, 100, 175), -4px -4px 0 rgb(50, 100, 175), 4px 0px 0 rgb(50, 100, 175), 0px 4px 0 rgb(50, 100, 175), -4px 0px 0 rgb(50, 100, 175), 0px -4px 0 rgb(50, 100, 175);
   color: rgb(255, 204, 1);
-  font-family: "Pokemon Solid";
+  font-family: "pokemon";
 }
 .header > div:last-of-type {
   display: flex;
