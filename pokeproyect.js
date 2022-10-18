@@ -5,10 +5,15 @@ const initializePokedex = async (pokemonLimit = 151) => {
 
     try {
         for(const index of iterable) {
+			// Information of each pokemon (object) added to de pokedex array
             const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + index);
             const result = await response.json();
             pokedex.push(result);
 
+			// Shiny attribute added to each pokemon object
+			pokedex[index - 1].shiny = Math.floor((Math.random() * 50) + 1) === 1 ? true : false;
+
+			// First english description added to each pokemon attribute
 			const specieFetch = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + index);
 			let specieInfo = await specieFetch.json();
 			for (quote of specieInfo.flavor_text_entries) {
@@ -38,11 +43,18 @@ const printPokemon = (pokedex) => {
 		pokeName$$.innerHTML = pokeData.name;
 		pokeDiv$$.appendChild(pokeName$$);
 
-		// Sprite
+		// Sprite (depends on shiny attribute)
 		const pokeImg$$ = document.createElement("img");
-		pokeImg$$.src = pokeData.sprites.front_default;
-		pokeImg$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
 		pokeDiv$$.appendChild(pokeImg$$);
+		if (pokeData.shiny) {
+			pokeImg$$.src = pokeData.sprites.front_shiny;
+			pokeImg$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
+			
+		} else {
+		pokeImg$$.src = pokeData.sprites.front_default;
+		pokeImg$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1);
+
+		}
 
 		// Types
 		const typeBox$$ = document.createElement("div");
@@ -98,17 +110,31 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	animationsDiv$$.className = "animations"
 	informationDiv$$.appendChild(animationsDiv$$)
 
-	// Animated front view of the pokemon 
+	// Animated front view of the pokemon (depends on shiny attribute)
 	const pokeGifFront$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifFront$$);
-    pokeGifFront$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
-	pokeGifFront$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
+	if (pokeData.shiny) {
+		pokeGifFront$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_shiny;
+		pokeGifFront$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
+
+	} else {
+		pokeGifFront$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.front_default;
+		pokeGifFront$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
+		
+	}
 
 	// Animated back view of the pokemon 
 	const pokeGifBack$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifBack$$);
-    pokeGifBack$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.back_default;
-	pokeGifBack$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
+	if (pokeData.shiny) {
+		pokeGifBack$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.back_shiny;
+		pokeGifBack$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
+
+	} else {
+		pokeGifBack$$.src = pokeData.sprites.versions["generation-v"]["black-white"].animated.back_default;
+		pokeGifBack$$.title = pokeData.name[0].toUpperCase() + pokeData.name.slice(1)
+		
+	}
 
 	// Div for stats + description
 	const statAndDescriptionDiv$$ = document.createElement("div")
@@ -124,6 +150,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	// Stats
 	for (statData of pokeData.stats){
 		const stat$$ = document.createElement("div")
+		// Need to refactor this
 		stat$$.innerHTML = `<span>${statData.stat.name}</span><span>----</span><span>${statData.base_stat}</span>`
 		statBox$$.appendChild(stat$$)
 	}
