@@ -64,7 +64,7 @@ const initializePokedex = async (pokemonLimit = 151) => {
 			// Habitat added to each pokemon as homonym attribute
 			pokemon.habitat = specieInfo.habitat.name
 			
-			pokemon.cry = "https://play.pokemonshowdown.com/audio/cries/src/" + pokemon.name + ".wav";
+			pokemon.cry = "https://play.pokemonshowdown.com/audio/cries/src/" + pokemon.name.split("-").join("") + ".wav";
 
 			pokedex.push(pokemon);
         }
@@ -91,6 +91,7 @@ const printPokemon = (pokedex) => {
 		const pokeImg$$ = document.createElement("img");
 		pokeDiv$$.appendChild(pokeImg$$);
 		if (pokeData.shiny) {
+			pokeImg$$.classList.add("shiny");
 			pokeImg$$.src = pokeData.shiny_sprite;
 			pokeImg$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
 			
@@ -195,6 +196,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	const pokeGifFront$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifFront$$);
 	if (pokeData.shiny) {
+		pokeGifFront$$.classList.add("shiny")
 		pokeGifFront$$.src = pokeData.shiny_front_animation;
 		pokeGifFront$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
 
@@ -208,6 +210,7 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 	const pokeGifBack$$ = document.createElement("img");
     animationsDiv$$.appendChild(pokeGifBack$$);
 	if (pokeData.shiny) {
+		pokeGifBack$$.classList.add("shiny")
 		pokeGifBack$$.src = pokeData.shiny_back_animation;
 		pokeGifBack$$.title = "Shiny " + pokeData.name[0].toUpperCase() + pokeData.name.slice(1) + "!!!";
 
@@ -246,6 +249,7 @@ const init = async () => {
     printPokemon(pokedex)
 
 	const inputSearch$$ = document.querySelector("input");
+	inputSearch$$.disabled = false
 	inputSearch$$.addEventListener("keyup", () => searchPokemon(inputSearch$$));
 
 	const clearSearch$$ = document.querySelector("#clearSearch")

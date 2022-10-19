@@ -22,6 +22,40 @@
     transform: rotate(359deg);
   }
 }
+@-webkit-keyframes flashing {
+  0% {
+    filter: brightness(1.05);
+  }
+  20% {
+    filter: brightness(0.9);
+  }
+  40% {
+    filter: brightness(1.05);
+  }
+  80% {
+    filter: brightness(1.2);
+  }
+  100% {
+    filter: brightness(1.05);
+  }
+}
+@keyframes flashing {
+  0% {
+    filter: brightness(1.05);
+  }
+  20% {
+    filter: brightness(0.9);
+  }
+  40% {
+    filter: brightness(1.05);
+  }
+  80% {
+    filter: brightness(1.2);
+  }
+  100% {
+    filter: brightness(1.05);
+  }
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -428,4 +462,9 @@ table {
 .pokeDetails .description {
   text-align: center;
   width: 50%;
+}
+
+.shiny {
+  -webkit-animation: flashing 3s infinite linear;
+          animation: flashing 3s infinite linear;
 }/*# sourceMappingURL=pokeproyect.css.map */
