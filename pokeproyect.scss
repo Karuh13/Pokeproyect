@@ -18,11 +18,11 @@
 }
 
 @keyframes flashing {
-    0% {filter: brightness(1.05)}
+    0% {filter: brightness(1.1)}
     20% {filter: brightness(0.9)}
-    40% {filter: brightness(1.05)}
-    80% {filter: brightness(1.2)}
-    100% {filter: brightness(1.05)}
+    40% {filter: brightness(1.1)}
+    80% {filter: brightness(1.3)}
+    100% {filter: brightness(1.1)}
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -296,7 +296,7 @@ table {
     align-items: center;
     width: 75%;
     margin: 0 12.5%;
-    height: 43vh;
+    height: 45vh;
     background-color: rgba(230, 230, 230, 0.7);
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.20);
@@ -378,7 +378,8 @@ table {
 
         span{
             font-size: calc(8px + 1vw);
-            width: fit-content;
+            width: calc(80px + 5vw);
+
         }
     }
 
@@ -389,5 +390,5 @@ table {
 }
 
 .shiny{
-    animation: flashing 3s infinite linear;
+    animation: flashing 2.5s infinite linear;
 }
