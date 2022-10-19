@@ -56,6 +56,40 @@
     filter: brightness(1.1);
   }
 }
+@-webkit-keyframes beepbeep {
+  0% {
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(1.4);
+  }
+  40% {
+    filter: brightness(1);
+  }
+  55% {
+    filter: brightness(1.4);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+@keyframes beepbeep {
+  0% {
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(1.4);
+  }
+  40% {
+    filter: brightness(1);
+  }
+  55% {
+    filter: brightness(1.4);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -469,4 +503,9 @@ table {
 
 .hidden {
   display: none;
+}
+
+.beep {
+  -webkit-animation: bepbep 0.7s 1 linear;
+          animation: bepbep 0.7s 1 linear;
 }/*# sourceMappingURL=pokeproyect.css.map */
