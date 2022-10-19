@@ -506,6 +506,6 @@ table {
 }
 
 .beep {
-  -webkit-animation: bepbep 0.7s 1 linear;
-          animation: bepbep 0.7s 1 linear;
+  -webkit-animation: beepbeep 0.7s 1 linear;
+          animation: beepbeep 0.7s 1 linear;
 }/*# sourceMappingURL=pokeproyect.css.map */
