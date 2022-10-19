@@ -129,38 +129,44 @@ const searchPokemon = (input) => {
 };
 
 const detailedView = async (pokeData, main$$, pokeDiv$$) => {
-	pokeDiv$$.innerHTML = "";
+	pokeDiv$$.classList.add("hidden");
+	const pokeDetailsDiv$$ = document.createElement("div")
+	pokeDiv$$.parentNode.insertBefore(pokeDetailsDiv$$, pokeDiv$$.nextSibling);
+
 
 	
 	// Card with details
-	pokeDiv$$.className = "pokeDetails"
+	pokeDetailsDiv$$.className = "pokeDetails"
 	
 	// Cry
 	const cryDiv$$ = document.createElement("div")
 	cryDiv$$.innerHTML =`<audio autoplay="autoplay"><source src=${pokeData.cry} type="audio/x-wav"></audio>`;
-	pokeDiv$$.appendChild(cryDiv$$)
+	pokeDetailsDiv$$.appendChild(cryDiv$$)
 	
 	// Name of the pokemon
 	const pokeName$$ = document.createElement("h3");
 	pokeName$$.innerHTML = pokeData.name;
-	pokeDiv$$.appendChild(pokeName$$);
+	pokeDetailsDiv$$.appendChild(pokeName$$);
 
 	// Genus of the pokemon
 	const genusP$$ = document.createElement("p")
 	genusP$$.innerHTML = pokeData.genus
-	pokeDiv$$.appendChild(genusP$$)
+	pokeDetailsDiv$$.appendChild(genusP$$)
 
 	// Closing button
 	const closingButton$$ = document.createElement("button")
-	pokeDiv$$.appendChild(closingButton$$)
+	pokeDetailsDiv$$.appendChild(closingButton$$)
 	closingButton$$.innerHTML = "X"
 	closingButton$$.className = "closing-button"
-	closingButton$$.addEventListener("click", () => searchPokemon(document.querySelector("input")))
+	closingButton$$.addEventListener("click", () => {
+		pokeDiv$$.classList.remove("hidden");
+		pokeDetailsDiv$$.remove()
+	})
 	
 	// Div for stats + animation
 	const statAndAnimationDiv$$ = document.createElement("div")
 	statAndAnimationDiv$$.className = "stat-animation"
-	pokeDiv$$.appendChild(statAndAnimationDiv$$)
+	pokeDetailsDiv$$.appendChild(statAndAnimationDiv$$)
 
 	// Div for stats
 	const statBox$$ = document.createElement("div")
@@ -230,15 +236,15 @@ const detailedView = async (pokeData, main$$, pokeDiv$$) => {
 		pokeType$$.className = type;
 		typeBox$$.appendChild(pokeType$$);
 	}
-	pokeDiv$$.appendChild(typeBox$$);
+	pokeDetailsDiv$$.appendChild(typeBox$$);
 
 	// Description
 	const descriptionP$$ = document.createElement("p")
 	descriptionP$$.innerHTML = pokeData.flavor_text
 	descriptionP$$.className = "description"
-	pokeDiv$$.appendChild(descriptionP$$)
+	pokeDetailsDiv$$.appendChild(descriptionP$$)
 
-	pokeDiv$$.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+	pokeDetailsDiv$$.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
 }
 
 

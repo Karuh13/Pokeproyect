@@ -465,4 +465,8 @@ table {
 .shiny {
   -webkit-animation: flashing 2.5s infinite linear;
           animation: flashing 2.5s infinite linear;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=pokeproyect.css.map */
