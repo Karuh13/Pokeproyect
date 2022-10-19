@@ -371,11 +371,13 @@ table {
             display: flex;
             align-items: center;
             height: 100%;
-            width: 30%;
+            width: 40%;
             justify-content: space-around;
+
     
             img{
-                transform: scale(1.2);
+                scale: 1.2;
+                min-width: 50px;
             }
         }
 
